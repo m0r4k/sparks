@@ -19,7 +19,7 @@ apt-get install ufw -y
 apt-get install htop -y
 apt-get install fail2ban -y
 apt-get install git python-virtualenv -y
-apt-get install curl y
+apt-get install curl -y
 
 
 echo -e "USER SETTINGS INSTALL \n"
@@ -32,7 +32,7 @@ read answer
 if echo "$answer" | grep -iq "^y" ;then
     sed -i -e 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
     cat /etc/ssh/sshd_config | grep PermitRootLogin
-    echo "RESTARTING SSH pleas try to relogin with " $username "befor logging out \n"
+    echo -e "RESTARTING SSH pleas try to relogin with " $username "befor logging out \n"
     systemctl restart ssh
 else
     echo "No change in SSH"
