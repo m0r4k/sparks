@@ -105,8 +105,10 @@ echo -e "CREATING CONFIG \n"
 echo -e "generating Passord \n"
 
 pwdgen=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 20 | head -n 1)
-privkey=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 51 | head -n 1)
 pubip=$(curl -s https://4.ifcfg.me/)
+## PRIV KEY GENERATION DOESN'T WORK AT THE MOMENT
+#privkey=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 51 | head -n 1)
+
 
 #echo -e $pwdgen 
 #echo -e $privkey 
@@ -117,7 +119,9 @@ chown $username:$username /home/$username/.Sparks
 cp  ./config/Sparks.conf /home/$username/.Sparks/Sparks.conf_gen
 sed -i -e "s|USERNAME|$username|g"  /home/$username/.Sparks/Sparks.conf_gen
 sed -i -e "s|PASSWORD|$pwdgen|g" /home/$username/.Sparks/Sparks.conf_gen
-sed -i -e "s|PRIVKEY|$privkey|g" /home/$username/.Sparks/Sparks.conf_gen
+
+## PRIV KEY GENERATION DOESN'T WORK AT THE MOMENT
+#sed -i -e "s|PRIVKEY|$privkey|g" /home/$username/.Sparks/Sparks.conf_gen
 sed -i -e "s|EXTIP|$pubip|g" /home/$username/.Sparks/Sparks.conf_gen
 
 chown $username:$username /home/$username/.Sparks/Sparks.conf_gen
