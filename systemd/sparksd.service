@@ -1,0 +1,25 @@
+[Unit]
+Description=Sparks's distributed currency daemon
+After=network.target
+
+[Service]
+User=CREATEDUSER
+Group=CREATEDUSER
+
+Type=forking
+#PIDFile=/var/lib/Sparksd/Sparksd.pid
+#ExecStart=/usr/local/bin/Sparksd -daemon -pid=/var/lib/Sparksd/Sparksd.pid \
+#-conf=/etc/Sparkscore/Sparks.conf -datadir=/var/lib/Sparksd -disablewallet
+
+ExecStart=/usr/local/bin/Sparksd -daemon -datadir=/home/CREATEDUSER/.Sparks -conf=/home/CREATEDUSER/.Sparks/Sparks.conf
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
+
