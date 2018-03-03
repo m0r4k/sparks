@@ -21,3 +21,9 @@ root@server:~/sparks/# ./install.sh
 
 follow the questions
 
+
+HEY SPONSOR ME SOME COINS
+
+SPK#:	GgPS4oL4oDLeGyEtrTyscTkLQm25zb9RBZ
+
+Thank you!
