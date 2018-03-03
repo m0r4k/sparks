@@ -34,7 +34,7 @@ if echo "$answer" | grep -iq "^y" ;then
    cat /etc/ssh/sshd_config | grep PermitRootLogin
 
    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
-   echo -e "RESTARTING SSH pleas try to relogin with " $username "befor logging out \n"
+   echo -e "RESTARTING SSH please try to relogin with " $username "befor logging out \n"
    systemctl restart ssh
    printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 
@@ -95,8 +95,8 @@ pwdgen=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 20 | head -n 1)
 privkey=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 51 | head -n 1)
 pubip=$(curl -s https://4.ifcfg.me/)
 
-echo -e $pwdgen 
-echo -e $privkey 
+#echo -e $pwdgen 
+#echo -e $privkey 
 
 mkdir -p /home/$username/.Sparks
 chown $username:$username /home/$username/.Sparks
@@ -111,3 +111,4 @@ chown $username:$username /home/$username/.Sparks/Sparks.conf_gen
 
 cp ./bin/Spark* /usr/local/bin
 
+echo -e "ALL DONE LOGIN AS" $username "AND ENJOY"
