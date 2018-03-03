@@ -9,7 +9,7 @@ apt-get install libdb4.8++ libdb4.8 -y
 echo -e "INSTALLING SPARKS DEPENDENCIES \n"
 apt-get install boost libboost-system1.58.0 libboost-filesystem1.58.0 libboost-all \
                 libboost-program-option libboost-program-options1.58.0 libboost-thread1.58.0 \
-                libboost-chrono1.58.0 libboost-unit-test-framework1.58.0 libboost-*1.58.0 -y
+                libboost-chrono1.58.0 libboost-test1.58.0 libboost-*1.58.0 -y
 
 apt-get install libminiupnpc10 libevent libevent-2.0-5 libevent-pthreads-2.0-5 -y
 
@@ -30,10 +30,14 @@ adduser $username && adduser $username sudo
 echo -n "Do you want to change  PermitRootLogin yes (y/n)? "
 read answer
 if echo "$answer" | grep -iq "^y" ;then
-    sed -i -e 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
-    cat /etc/ssh/sshd_config | grep PermitRootLogin
-    echo -e "RESTARTING SSH pleas try to relogin with " $username "befor logging out \n"
-    systemctl restart ssh
+   sed -i -e 's/PermitRootLogin yes/PermitRootLogin no/g' /etc/ssh/sshd_config
+   cat /etc/ssh/sshd_config | grep PermitRootLogin
+
+   printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+   echo -e "RESTARTING SSH pleas try to relogin with " $username "befor logging out \n"
+   systemctl restart ssh
+   printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+
 else
     echo "No change in SSH"
 fi
@@ -74,15 +78,16 @@ if echo "$answer_sparksd" | grep -iq "^y" ;then
    cp ./systemd/sparksd.service /etc/systemd/system/sparksd_$username.service
    sed -i -e "s/CREATEDUSER/$username/g" /etc/systemd/system/sparksd_$username.service
 
-   echo -e "when everything is configured start the service and enable it"
-   echo -e "systemctl start sparksd_"$username".service"
-   echo -e "systemctl enable sparksd_"$username".service"
-   echo -e "try with some reboots if everything works fine!"
+   printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
+   echo -e "\t when everything is configured start the service and enable it"
+   echo -e "\t systemctl start sparksd_"$username".service"
+   echo -e "\t systemctl enable sparksd_"$username".service"
+   echo -e "\t try with some reboots if everything works fine!"
 else
     echo "No change in ufw"
 fi
 
-
+printf '%*s\n' "${COLUMNS:-$(tput cols)}" '' | tr ' ' -
 echo -e "CREATING CONFIG \n"
 echo -e "generating Passord \n"
 
@@ -105,3 +110,4 @@ sed -i -e "s|EXTIP|$pubip|g" /home/$username/.Sparks/Sparks.conf_gen
 chown $username:$username /home/$username/.Sparks/Sparks.conf_gen
 
 cp ./bin/Spark* /usr/local/bin
+
