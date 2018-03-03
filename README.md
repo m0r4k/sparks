@@ -7,6 +7,10 @@ Masternode
 YOU NEED TO BE LOGGED IN AS ROOT!
 BE CAREFULL this script is setting FW and sshd 
 
+
+UBUNTU 16.04 -> dont't forget!
+
+
 ```js
 root@server:~/# git clone https://github.com/m0r4k/sparks
 ```
