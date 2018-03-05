@@ -2,7 +2,7 @@
 
 conf_flags="--without-gui --enable-cxx --disable-shared"
 #cpu_amount=$(grep -c ^processor /proc/cpuinfo)
-cpu_amount=5
+cpu_amount=1
 
 echo -n "Do you want to compile Sparks from GIT Source ? (y/n) "
 read answer_git
