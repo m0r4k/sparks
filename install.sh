@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo -e "ADDING REPOSITORY \n"
+
 apt-get install software-properties-common -y
 add-apt-repository ppa:bitcoin/bitcoin
 apt-get update
