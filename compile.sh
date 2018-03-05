@@ -59,7 +59,7 @@ else
     echo "no compilation"
 fi
 
-echo -n "SHOULD BE DONE NOW enjoy \n"
+echo -e "SHOULD BE DONE NOW enjoy \n"
 
-echo -n "COMPILATION TIME" $COMPILE_TIME "\n"
+echo -e "COMPILATION TIME " $COMPILE_TIME "minutes \n"
 
