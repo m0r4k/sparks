@@ -18,6 +18,35 @@ The script is configuring SPK Masternode SERVER
   - masternodeprivkey generation out of bash script
   - ...
  
+# Howto compile (WIN 32/64)
+
+Follow the instructions of compile_win.sh
+
+```sh
+root@server:~/# git clone https://github.com/m0r4k/sparks
+root@server:~/# cd sparks
+root@server:~/sparks/# chmod u+x compile_win.sh && ./compile_win.sh
+```
+
+ATTENTION: Binaries are in 
+
+```sh
+root@server:~/# cd sparks/Sparks/src              #here are the cmd binaries (exe)
+root@server:~/# cd sparks/Sparks/src/qt		  #here is the qt binary (exe)
+```
+
+
+# Howto compile (LINUX/UNIX)
+
+```sh
+root@server:~/# git clone https://github.com/m0r4k/sparks
+root@server:~/# cd sparks
+root@server:~/sparks/# chmod u+x compile.sh && ./compile_win.sh
+```
+
+ATTENTION: Binaries (without gui) are copied to ~/ (HOMEFOLDER)
+
+
 # Howto install
 Login to your HOST (Virtual or REAL) with root account. Go where ever you
 want to download the git repository.
