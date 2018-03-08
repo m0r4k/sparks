@@ -1,9 +1,15 @@
 # Sparks Masternode AUTOMATIC Installer
 
-Befor we start some interesting Information for you! Theses scripts are made for UBUNTU 16.04 
+Befor we start some interesting Information for you! Theses compiled scripts are made for UBUNTU 16.04 
 So any other Distro needs to be adapted -> but the work is not done now!
 
-The script is configuring SPK Masternode SERVER 
+ATTENTION: 
+Due to announcment of forking, takeover and other rumors I'm forced to close the view on my work. This
+git-project is now under heavy development and my personal timeline is focused on creating scripts for
+more distros than only Ubuntu 16.04. While I'm on developing process the updates will be published in 
+binary format only.
+
+The install script is configuring SPK Masternode SERVER 
 - sshd with PermitRootLogin no
 - ufw setup
 - fail2ban (ssh enabled)
@@ -20,12 +26,12 @@ The script is configuring SPK Masternode SERVER
  
 # Howto compile (WIN 32/64)
 
-Follow the instructions of compile_win.sh
+Follow the instructions of compile_win
 
 ```sh
 root@server:~/# git clone https://github.com/m0r4k/sparks
 root@server:~/# cd sparks
-root@server:~/sparks/# chmod u+x compile_win.sh && ./compile_win.sh
+root@server:~/sparks/# chmod u+x compile_win && ./compile_win
 ```
 
 ATTENTION: Binaries are in 
@@ -41,7 +47,7 @@ root@server:~/# cd sparks/Sparks/src/qt		  #here is the qt binary (exe)
 ```sh
 root@server:~/# git clone https://github.com/m0r4k/sparks
 root@server:~/# cd sparks
-root@server:~/sparks/# chmod u+x compile.sh && ./compile_win.sh
+root@server:~/sparks/# chmod u+x compile && ./compile_win
 ```
 
 ATTENTION: Binaries (without gui) are copied to ~/ (HOMEFOLDER)
@@ -54,8 +60,8 @@ want to download the git repository.
 ```sh
 root@server:~/# git clone https://github.com/m0r4k/sparks
 root@server:~/# cd sparks
-root@server:~/sparks/# chmod u+x install.sh
-root@server:~/sparks/# ./install.sh
+root@server:~/sparks/# chmod u+x install
+root@server:~/sparks/# ./install
 ```
 
 if everything went well you should see something  in 
